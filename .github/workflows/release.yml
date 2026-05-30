@@ -1,0 +1,65 @@
+name: Package and Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage mod files
+        run: |
+          rm -rf dist BetterForestFarm
+          mkdir -p dist BetterForestFarm
+          cp manifest.json content.json BetterForestFarm/
+          cp -R assets i18n BetterForestFarm/
+
+      - name: Zip mod
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r dist/BetterForestFarm.zip BetterForestFarm
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BetterForestFarm.zip
+          path: dist/BetterForestFarm.zip
+          if-no-files-found: error
+
+      - name: Read manifest version
+        id: manifest
+        run: echo "tag=v$(jq -r '.Version' manifest.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Check for existing release tag
+        id: release
+        if: github.ref == 'refs/heads/main'
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${{ steps.manifest.outputs.tag }}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub release
+        if: github.ref == 'refs/heads/main' && steps.release.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.manifest.outputs.tag }}" \
+            dist/BetterForestFarm.zip \
+            --target "${{ github.sha }}" \
+            --title "${{ steps.manifest.outputs.tag }}" \
+            --notes "Upload BetterForestFarm.zip to Nexus Mods."
+
+      - name: Skip release because version already has a tag
+        if: github.ref == 'refs/heads/main' && steps.release.outputs.exists == 'true'
+        run: echo "${{ steps.manifest.outputs.tag }} already exists; zip artifact was still uploaded."

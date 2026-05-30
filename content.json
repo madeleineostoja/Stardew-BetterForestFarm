@@ -1,0 +1,43 @@
+{
+  "Format": "2.0.0",
+  "ConfigSchema": {
+    "GrassyFields": {
+      "AllowValues": "true, false",
+      "Default": "false"
+    },
+    "WoodsShortcut": {
+      "AllowValues": "true, false",
+      "Default": "false"
+    }
+  },
+  "Changes": [
+    {
+      "Action": "Load",
+      "Target": "Maps/Farm_Foraging",
+      "FromFile": "assets/maps/Farm.tmx"
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Farm_Foraging",
+      "AddWarps": ["6 59 Woods 46 4"],
+      "When": {
+        "WoodsShortcut": "true"
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Woods",
+      "AddWarps": ["46 3 Farm 6 58"],
+      "When": {
+        "WoodsShortcut": "true"
+      }
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Farm_Foraging",
+      "FromFile": "assets/maps/Grassy_Fields.tmx",
+      "PatchMode": "Overlay",
+      "When": { "GrassyFields": "true" }
+    }
+  ]
+}

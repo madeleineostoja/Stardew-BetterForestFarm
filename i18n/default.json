@@ -1,0 +1,6 @@
+{
+  "config.GrassyFields.name": "Grassy fields",
+  "config.GrassyFields.description": "Replaces most dirt with tillable grass, and darkens existing (non-tillable) grass",
+  "config.WoodsShortcut.name": "Secret Woods shortcut",
+  "config.WoodsShortcut.description": "Adds a shortcut to the Secret Woods, blocked by a hardwood log like the main entrance."
+}
