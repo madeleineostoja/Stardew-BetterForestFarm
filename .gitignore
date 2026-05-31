@@ -1,2 +1,3 @@
-*.png
+assets/maps/*.png
+*.af
 config.json
