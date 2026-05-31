@@ -1,20 +1,31 @@
 {
   "Format": "2.0.0",
   "ConfigSchema": {
-    "GrassyFields": {
+    "Lake": {
       "AllowValues": "true, false",
-      "Default": "false"
+      "Default": "true"
     },
     "WoodsShortcut": {
       "AllowValues": "true, false",
-      "Default": "false"
+      "Default": "true"
     }
   },
   "Changes": [
     {
       "Action": "Load",
       "Target": "Maps/Farm_Foraging",
-      "FromFile": "assets/maps/Farm.tmx"
+      "FromFile": "assets/maps/Farm_Ponds.tmx",
+      "When": {
+        "Lake": "false"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/Farm_Foraging",
+      "FromFile": "assets/maps/Farm_Lake.tmx",
+      "When": {
+        "Lake": "true"
+      }
     },
     {
       "Action": "EditMap",
@@ -31,13 +42,6 @@
       "When": {
         "WoodsShortcut": "true"
       }
-    },
-    {
-      "Action": "EditMap",
-      "Target": "Maps/Farm_Foraging",
-      "FromFile": "assets/maps/Grassy_Fields.tmx",
-      "PatchMode": "Overlay",
-      "When": { "GrassyFields": "true" }
     }
   ]
 }

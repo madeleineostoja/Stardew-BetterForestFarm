@@ -1,6 +1,8 @@
 {
-  "config.GrassyFields.name": "Grassy fields",
-  "config.GrassyFields.description": "Replaces most dirt with tillable grass, and darkens existing (non-tillable) grass",
+  "config.Lake.name": "Farm lake",
+  "config.Lake.description": "Replaces the scattered farm ponds with a large lake tucked into the bottom corner",
   "config.WoodsShortcut.name": "Secret Woods shortcut",
-  "config.WoodsShortcut.description": "Adds a shortcut to the Secret Woods, blocked by a hardwood log like the main entrance."
+  "config.WoodsShortcut.description": "Adds a shortcut to the Secret Woods, blocked by a hardwood log like the main entrance",
+  "config.GrassyFields.name": "Grassy fields",
+  "config.GrassyFields.description": "Replaces most dirt with tillable grass, and darkens existing (non-tillable) grass"
 }
