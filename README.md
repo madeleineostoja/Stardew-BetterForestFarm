@@ -4,9 +4,9 @@ An immersive, configurable alteration of the Forest (foraging) farm map for Star
 
 ## Features
 
-- **Redesigned farm map** — a hand-crafted rework of the Forest farm layout with improved aesthetics and flow
-- **Grassy Fields** _(optional)_ — replaces most dirt with tillable grass and darkens existing non-tillable grass for a lusher, more forested feel
-- **Secret Woods Shortcut** _(optional)_ — adds a second entrance to the Secret Woods at the bottom of your farm, blocked by a hardwood log just like the main entrance
+- **Forest Lake (optional)** — Replace most of ponds on the farm with a large lake that extends into the bottom right of the farm, with a small rustic jetty attached to it. Overall land cover doesn't change too much so as not to drastically change the vanilla balancing of the map, but it should be much easier to plan around and generally fits the foresty vibe.
+- **Secret Woods Shortcut (optional)** — Adds a shortcut straight from the bottom left of the map to the Secret Woods, because we're in a forest after all. The shortcut is behind a large hardwood log, same as the main entrance to the Secret Woods so progression doesn't change.
+- **Immersive Boundaries** — A small tweak, removes the fences and remodels the boundaries around the top and right of the map, to make it feel more natural and like you're nestled into an actual forest
 
 ## Requirements
 
