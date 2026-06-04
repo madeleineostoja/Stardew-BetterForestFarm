@@ -1,7 +1,7 @@
 {
   "Name": "Better Forest Farm",
   "Author": "Mads",
-  "Version": "1.1.1",
+  "Version": "1.1.2",
   "Description": "An immersive, configurable alteration of the forest (foraging) farm map. Compatible with all recolours",
   "UniqueID": "heyitsmads.BetterForestFarm",
   "UpdateKeys": ["Nexus:46969"],
